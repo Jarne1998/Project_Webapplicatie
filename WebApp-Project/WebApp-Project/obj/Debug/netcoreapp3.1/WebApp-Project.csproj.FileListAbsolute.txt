@@ -49,3 +49,4 @@ C:\Users\jarne\Desktop\Project_Webapplicatie\WebApp-Project\WebApp-Project\obj\D
 C:\Users\jarne\Desktop\Project_Webapplicatie\WebApp-Project\WebApp-Project\obj\Debug\netcoreapp3.1\WebApp-Project.pdb
 C:\Users\jarne\Desktop\Project_Webapplicatie\WebApp-Project\WebApp-Project\obj\Debug\netcoreapp3.1\WebApp-Project.genruntimeconfig.cache
 C:\Users\jarne\Desktop\Project_Webapplicatie\WebApp-Project\WebApp-Project\obj\Debug\netcoreapp3.1\Razor\Views\Playlist\index.cshtml.g.cs
+C:\Users\jarne\Desktop\Project_Webapplicatie\WebApp-Project\WebApp-Project\obj\Debug\netcoreapp3.1\WebApp-Project.MvcApplicationPartsAssemblyInfo.cs

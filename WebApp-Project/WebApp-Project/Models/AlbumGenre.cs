@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,5 +8,12 @@ namespace WebApp_Project.Models
 {
     public class AlbumGenre
     {
+        [Key]
+        public int AlbumGenreID { get; set; }
+        public int AlbumID { get; set; }
+        public int GenreID { get; set; }
+
+        public Album Album { get; set; }
+        public Genre Genre { get; set; }
     }
 }

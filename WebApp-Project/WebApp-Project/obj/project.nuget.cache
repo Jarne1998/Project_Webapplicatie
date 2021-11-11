@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XEgIuM08XZPzFIPj7L3zDJUZlzZnDxJM//MeR5/DsoiJHc3aXuFNXIuR5J9zlRA+eA73mejiV2wtKXKyoYWMlA==",
+  "dgSpecHash": "CmeWyiCueWjpplFZry1zmR1CIrUCSEkUk8ZyWy1nKUKPhy2ijsmOXKFnficHghSFU7khhCSo+X16Ueqn7pUF5w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jarne\\Desktop\\Project_Webapplicatie\\WebApp-Project\\WebApp-Project\\WebApp-Project.csproj",
+  "projectFilePath": "C:\\Users\\jarne\\Desktop\\ThomasMore\\Projecten\\Project_Webapplicatie\\WebApp-Project\\WebApp-Project\\WebApp-Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jarne\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\jarne\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.20\\microsoft.aspnetcore.cryptography.internal.3.1.20.nupkg.sha512",

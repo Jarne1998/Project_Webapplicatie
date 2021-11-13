@@ -15,7 +15,7 @@ namespace MusicPlayer_Project.Models
         public int GenreID { get; set; }
         public int SongID { get; set; }
 
-        public Genre Genre { get; set; }
-        public Song Song { get; set; }
+        public ICollection<Song> Songs { get; set; }
+        public ICollection<Genre> Genres { get; set; }
     }
 }

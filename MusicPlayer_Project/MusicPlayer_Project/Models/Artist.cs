@@ -14,5 +14,8 @@ namespace MusicPlayer_Project.Models
         public int ArtistID { get; set; }
         public string Name { get; set; }
         public string About { get; set; }
+
+        public Album Albums { get; set; }
+        public ArtistSong ArtistSongs { get; set; }
     }
 }

@@ -13,5 +13,8 @@ namespace MusicPlayer_Project.Models
         [Key]
         public int GenreID { get; set; }
         public string Name { get; set; }
+
+        public AlbumGenre AlbumGenres { get; set; }
+        public SongGenre SongGenres { get; set; }
     }
 }

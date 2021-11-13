@@ -15,5 +15,11 @@ namespace MusicPlayer_Project.Models
         public string Name { get; set; }
         public int DurationSong { get; set; }
         public string FileType { get; set; }
+
+        public ICollection<Album> Albums { get; set; }
+        public ICollection<User> Users { get; set; }
+        public SongGenre SongGenres { get; set; }
+        public PlaylistCollection PlaylistCollections { get; set; }
+        public ArtistSong ArtistSongs { get; set; }
     }
 }

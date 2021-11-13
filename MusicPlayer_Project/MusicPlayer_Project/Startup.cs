@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace MusicPlayer_Project
 {
@@ -27,8 +28,26 @@ namespace MusicPlayer_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<MusicPlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MusicPlayerConnection")));
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<MusicPlayerContext>();
+            services.AddDbContext<MusicPlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MusicPlayerDBConnection")));
+            //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<MusicPlayerContext>();
+
+            services.Configure<IdentityOptions>(options => 
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +68,7 @@ namespace MusicPlayer_Project
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -56,6 +76,7 @@ namespace MusicPlayer_Project
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

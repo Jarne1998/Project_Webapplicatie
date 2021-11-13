@@ -17,5 +17,8 @@ namespace MusicPlayer_Project.Models
         public string Username { get; set; }
         public DateTime Joined { get; set; }
         public string Password { get; set; }
+
+        public PlaylistUser PlaylistUsers { get; set; }
+        public Song Songs { get; set; }
     }
 }

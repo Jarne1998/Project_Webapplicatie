@@ -15,5 +15,8 @@ namespace MusicPlayer_Project.Models
         public DateTime DateAdded { get; set; }
         public string Name { get; set; }
         public int SongsInPlaylist { get; set; }
+
+        public PlaylistCollection PlaylistCollections { get; set; }
+        public PlaylistUser PlaylistUsers { get; set; }
     }
 }

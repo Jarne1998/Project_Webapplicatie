@@ -207,3 +207,5 @@ C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Pr
 C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\Razor\Views\Playlist\Index.cshtml.g.cs
+C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\Razor\Views\Playlist\Create.cshtml.g.cs

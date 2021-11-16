@@ -1,0 +1,35 @@
+﻿@model MusicPlayer_Project.ViewModels.PlaylistListViewModel
+@{
+    ViewData["Title"] = "index";
+}
+
+<h2>index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(v => v.Playlists[0].Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var playlist in Model.Playlists)
+        {
+            <tr>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => playlist.Name)
+                </td>
+                <td class="col-md-2">
+                    <a asp-action="Edit" asp-route-id="@playlist.PlaylistID">Edit</a>
+                    <a asp-action="Details" asp-route-id="@playlist.PlaylistID">Details</a>
+                    <a asp-action="Delete" asp-route-id="@playlist.PlaylistID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

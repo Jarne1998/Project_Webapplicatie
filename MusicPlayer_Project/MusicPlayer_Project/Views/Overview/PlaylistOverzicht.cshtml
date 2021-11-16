@@ -1,0 +1,22 @@
+﻿@model MusicPlayer_Project.ViewModels.PlaylistListViewModel
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    @foreach (var playlist in Model.Playlists)
+    {
+        <div class="card col-md-4" style="float: left;">
+            @*<img class="card-img-top" src="@Url.Content(burger.Url)">*@
+            <div class="card-body">
+                <p class="card-text"><strong>@playlist.Name</strong></p>
+                <p>Bevat:</p>
+                <ul>
+                    <li>@playlist.SongsInPlaylist</li>
+                    <li>@playlist.DateAdded</li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>

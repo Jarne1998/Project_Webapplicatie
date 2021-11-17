@@ -21,8 +21,25 @@ namespace MusicPlayer_Project.Controllers
         public IActionResult Index()
         {
             PlaylistListViewModel viewModel = new PlaylistListViewModel();
-            //viewModel.Playlists = _context.Playlists
+            viewModel.Playlists = _context.Playlists.ToList();
             return View(viewModel);
+        }
+
+        public IActionResult Details(int id)
+        {
+            Playlist playlist = _context.Playlists.Where(prod => prod.PlaylistID == id).FirstOrDefault();
+
+            if (playlist != null)
+            {
+                PlaylistDetailViewModel viewModel = new PlaylistDetailViewModel() { Name = playlist.Name };
+                return View(viewModel);
+            }
+            else
+            {
+                PlaylistListViewModel vm = new PlaylistListViewModel();
+                vm.Playlists = _context.Playlists.ToList();
+                return View("Index", vm);
+            }
         }
     }
 }

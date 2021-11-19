@@ -211,3 +211,4 @@ C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Pr
 C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.dll
 C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.pdb
 C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.genruntimeconfig.cache
+C:\Users\jarne\Desktop\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.csproj.AssemblyReference.cache

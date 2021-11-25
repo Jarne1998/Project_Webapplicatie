@@ -28,7 +28,7 @@ namespace MusicPlayer_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<MusicPlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MusicPlayerDBConnection")));
+            services.AddDbContext<MusicPlayer_ProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MusicPlayerDBConnection")));
             //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<MusicPlayerContext>();
 
             services.Configure<IdentityOptions>(options => 
@@ -76,7 +76,7 @@ namespace MusicPlayer_Project
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
+               endpoints.MapRazorPages();
             });
         }
     }

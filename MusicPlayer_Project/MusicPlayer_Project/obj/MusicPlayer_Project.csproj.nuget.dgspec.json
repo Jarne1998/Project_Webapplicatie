@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jarne\\Desktop\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj": {}
+    "C:\\Users\\jarne\\Documents\\ThomasMore\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jarne\\Desktop\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj": {
+    "C:\\Users\\jarne\\Documents\\ThomasMore\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jarne\\Desktop\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj",
+        "projectUniqueName": "C:\\Users\\jarne\\Documents\\ThomasMore\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj",
         "projectName": "MusicPlayer_Project",
-        "projectPath": "C:\\Users\\jarne\\Desktop\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj",
+        "projectPath": "C:\\Users\\jarne\\Documents\\ThomasMore\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\MusicPlayer_Project.csproj",
         "packagesPath": "C:\\Users\\jarne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jarne\\Desktop\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\obj\\",
+        "outputPath": "C:\\Users\\jarne\\Documents\\ThomasMore\\ThomasMore\\Projecten\\Project_Webapplicatie\\MusicPlayer_Project\\MusicPlayer_Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -46,9 +44,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "EntityFramework": {
+            "Google.Apis.YouTube.v3": {
               "target": "Package",
-              "version": "[6.4.4, )"
+              "version": "[1.55.0.2449, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -103,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

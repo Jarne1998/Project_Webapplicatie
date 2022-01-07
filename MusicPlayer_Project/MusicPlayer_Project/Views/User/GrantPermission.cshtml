@@ -1,0 +1,19 @@
+﻿@model MusicPlayer_Project.ViewModels.GrantPermissionsViewModel
+
+@{
+    ViewData["Title"] = "Grant Permission";
+}
+
+<form asp-action="GrantPermissions" asp-methode="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <select asp-for="userID" asp-items="Model.Users"></select>
+    </div>
+    <div class="from-group">
+        <select asp-for="RollID" asp-items="Model.Rolls"></select>
+    </div>
+    <div class="from-group">
+        <input type="submit" value="Create" class="btn btn-primary"/>
+    </div>
+</form>
+

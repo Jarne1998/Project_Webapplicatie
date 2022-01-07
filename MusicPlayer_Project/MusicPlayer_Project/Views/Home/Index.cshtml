@@ -1,23 +1,61 @@
-﻿@{
+﻿@model MusicPlayer_Project.ViewModels.HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="card">
-            <h3 class="card-title">Glassmorphism is awesome</h3>
-            <p>A modern CSS UI library based on the glassmorphism design principles that will help you quickly design and build beautiful websites and applications.</p>
-
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <h3 class="card-title">Playlists</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">
+                                @Html.DisplayNameFor(v => v.Playlists[0].NamePlaylist)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var playlist in Model.Playlists)
+                        {
+                            <tr>
+                                <td class="col-md-2">
+                                    @Html.DisplayFor(modelItem => playlist.NamePlaylist)
+                                </td>
+                                <td class="col-md-2">
+                                    <a asp-action="Details" asp-route-id="@playlist.PlaylistID">Details</a>
+                                </td>
+                            </tr>
+                         }
+                   </tbody>
+              </table>     
+            </div>
+            <div class="card">
+                <h3 class="card-title">Songs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">
+                                @Html.DisplayNameFor(v => v.Songs[0].Name)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var song in Model.Songs)
+                        {
+                            <tr>
+                                <td class="col-md-2">
+                                    @Html.DisplayFor(modelItem => song.Name)
+                                </td>
+                                <td class="col-md-2">
+                                    <a asp-action="SongDetails" asp-route-id="@song.SongID">Details</a>
+                                </td>
+                            </tr>
+                         }
+                   </tbody>
+              </table>     
+            </div>
         </div>
-    </div>
-
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="card">
-            <h3 class="card-title">Glassmorphism is awesome</h3>
-            <p>A modern CSS UI library based on the glassmorphism design principles that will help you quickly design and build beautiful websites and applications.</p>
-
-        </div>
-    </div>
 </div>

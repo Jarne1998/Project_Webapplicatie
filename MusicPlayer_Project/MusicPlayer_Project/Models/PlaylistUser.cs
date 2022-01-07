@@ -12,10 +12,9 @@ namespace MusicPlayer_Project.Models
     {
         [Key]
         public int PlaylistUserID { get; set; }
-        public int UserID { get; set; }
         public int PlaylistID { get; set; }
 
-        public ICollection<User> Users { get; set; }
-        public ICollection<Playlist> Playlists { get; set; }
+        public User User { get; set; }
+        public Playlist Playlist { get; set; }
     }
 }

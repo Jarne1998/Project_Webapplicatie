@@ -1,0 +1,43 @@
+﻿@model MusicPlayer_Project.ViewModels.SongListViewModel
+
+<h2>index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Song" asp-action="Search" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search name:
+            <input asp-for="NameSearch" /><br />
+            <input type="submit" value="Search" class="btn btn-default" /><br />
+            <a asp-controller="Song" asp-action="Index">Back to full list</a>
+        </p>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(v => v.Songs[0].Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model.Songs)
+        {
+            <tr>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => song.Name)
+                </td>
+                <td class="col-md-2">
+                    <a asp-action="Edit" asp-route-id="@song.SongID">Edit</a>
+                    <a asp-action="Details" asp-route-id="@song.SongID">Details</a>
+                    <a asp-action="Delete" asp-route-id="@song.SongID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

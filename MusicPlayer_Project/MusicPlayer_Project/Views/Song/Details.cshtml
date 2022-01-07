@@ -1,0 +1,33 @@
+﻿@model MusicPlayer_Project.ViewModels.SongDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(v => v.Songs[0].SongID)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model.Songs)
+        {
+            <tr>
+                <td class="col-md-2">
+                    Name: @Html.DisplayFor(modelItem => song.Name)
+                </td>
+                <td class="col-md-2">
+                    Duration: @Html.DisplayFor(modelItem => song.DurationSong)
+                </td>
+                <td class="col-md-2">
+                    Artist: @Html.DisplayFor(modelItem => song.ArtistSongs)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("terug", "index", "song")

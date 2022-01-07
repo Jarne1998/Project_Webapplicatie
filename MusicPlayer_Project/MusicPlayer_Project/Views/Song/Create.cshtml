@@ -1,0 +1,49 @@
+﻿@model MusicPlayer_Project.ViewModels.AddSongViewModel
+
+@{ 
+    ViewData["Title"] = "Create";
+    Layout = "";
+}
+
+<h1>Create</h1>
+
+<h4>Songs</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            @*<div class="form-group">
+                <label asp-for="NamePlaylist"></label>
+                <input asp-for="NamePlaylist" class="form-control" />
+                <span asp-validation-for="NamePlaylist" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="URL"></label>
+                <input asp-for="URL" class="form-control"/>
+                <span asp-validation-for="URL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurationSong"></label>
+                <input asp-for="DurationSong" class="form-control"/>
+                <span asp-validation-for="DurationSong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Script {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -4,13 +4,32 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>@Model.Name</h1>
+<table>
+    <thead>
+        <tr>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(v => v.PlaylistCollections[0].Playlist.NamePlaylist)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var playlist in Model.PlaylistCollections)
+        {
+            <tr>
+                <td class="col-md-2">
+                    <p>
+                        @Html.DisplayFor(modelItem => playlist.Playlist.PlaylistID)
+                    </p>
+                    <p>
+                        Song Naam: @Html.DisplayFor(modelItem => playlist.Song.Name)
+                    </p>
+                    <p>
+                        Song URL: @Html.DisplayFor(modelItem => playlist.Song.URL)
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<p>
-    Name: @Model.Name
-</p>
-<p>
-    Datum aangemaakt @Html.DisplayFor(ModelItem => Model.DateAdded)
-</p>
-
-@Html.ActionLink("terug", "index", "Playlist")
+@Html.ActionLink("Back", "index", "Playlist")

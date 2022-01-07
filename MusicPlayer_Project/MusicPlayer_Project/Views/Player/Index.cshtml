@@ -1,0 +1,64 @@
+﻿@model MusicPlayer_Project.ViewModels.PlayerViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Player</h2>
+
+<div class="leanback-player-video">
+<video width="500" height="250" preload="auto" controls p oster="http://dl.dropbox.com/u/46705018/sintel.mp4.mp4">
+<source src="@Model.URL" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+
+<object class="leanback-player-flash-fallback" width="500" height="250" type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf">
+<param name="movie" value="http://player.longtailvideo.com/player.swf" />
+<param name="allowFullScreen" value="true" />
+<param name="wmode" value="opaque" />
+<param name="bgcolor" value="#000000" />
+<param name="flashVars" value="controlbar=over&amp;file=http://dl.dropbox.com/u/46705018/sintel.mp4.mp4
+&amp;image=http://dl.dropbox.com/u/46705018/sintel.mp4.mp4" />
+</object>
+
+<div class="leanback-player-html-fallback" style="width: 500px; height: 250px;">
+<img src="http://dl.dropbox.com/u/46705018/sintel.mp4.mp4" width="500" height="250" alt="Poster Image"
+title="No HTML5-Video playback capabilities found. Please download the video(s) below." />
+<div>
+<strong>Download Video:</strong>
+<a href="http://dl.dropbox.com/u/46705018/sintel.mp4.mp4">.mp4</a>
+</div>
+</div>
+</video>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(v => v.Songs[0].Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model.Songs)
+        {
+            <tr>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => song.Name)
+                </td>
+                <td class="col-md-2">
+                    <a asp-action="Edit" asp-route-id="@song.SongID">Edit</a>
+                    <a asp-action="Details" asp-route-id="@song.SongID">Details</a>
+                    <a asp-action="Delete" asp-route-id="@song.SongID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<div data-video="@Model.Songs"  
+    data-autoplay="0"         
+    data-loop="1"             
+    id="youtube-audio">
+</div>*@
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>

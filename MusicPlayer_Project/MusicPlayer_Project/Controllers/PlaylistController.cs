@@ -1,10 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Protocols;
 using MusicPlayer_Project.Data;
 using MusicPlayer_Project.Models;
 using MusicPlayer_Project.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +22,7 @@ namespace MusicPlayer_Project.Controllers
     {
         private readonly MusicPlayer_ProjectContext _context;
 
-        public PlaylistController(MusicPlayer_ProjectContext context)
+        public PlaylistController( MusicPlayer_ProjectContext context)
         {
             _context = context;
         }
@@ -26,13 +34,21 @@ namespace MusicPlayer_Project.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Playlist playlist = _context.Playlists.Where(prod => prod.PlaylistID == id).FirstOrDefault();
+            List<PlaylistCollection> playlistCollections = new List<PlaylistCollection>();
 
-            if (playlist != null)
+            playlistCollections = await _context.PlaylistCollections.Where(prod => prod.PlaylistID == id).Include(s => s.Song).Include(p => p.Playlist).ToListAsync();
+
+
+            if (playlistCollections != null)
             {
-                PlaylistDetailViewModel viewModel = new PlaylistDetailViewModel() { Name = playlist.Name };
+                PlaylistDetailViewModel viewModel = new PlaylistDetailViewModel() 
+                { 
+                    PlaylistCollections = playlistCollections,
+                    
+                };
+
                 return View(viewModel);
             }
             else
@@ -54,12 +70,30 @@ namespace MusicPlayer_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(new Playlist()
+                Playlist playlist = new Playlist()
                 {
-                    Name = viewModel.Name,
+                    NamePlaylist = viewModel.NamePlaylist,
                     DateAdded = viewModel.DateCreated,
-                });
+                };
+                _context.Add(playlist);
+
+                Song song = new Song()
+                {
+                    URL = viewModel.URL,
+                    Name = viewModel.Name
+                };
+                _context.Add(song);
+
                 await _context.SaveChangesAsync();
+
+                _context.Add(new PlaylistCollection()
+                {
+                    PlaylistID = playlist.PlaylistID,
+                    SongID = song.SongID
+                });
+
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(viewModel);
@@ -67,6 +101,8 @@ namespace MusicPlayer_Project.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+            Song song = new Song();
+
             if (id == null)
             {
                 return NotFound();
@@ -82,7 +118,33 @@ namespace MusicPlayer_Project.Controllers
             {
                 PlaylistID = playlist.PlaylistID,
                 DateAdded = playlist.DateAdded,
-                Name = playlist.Name
+                NamePlaylist = playlist.NamePlaylist,
+                Name = song.Name,
+            };
+
+            return View(viewModel);
+        }
+
+        public IActionResult AddSongToPlaylist()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> AddSongToPlaylist(int id)
+        {
+            var song = await _context.Songs.FirstOrDefaultAsync(s => s.SongID == id);
+            if (song == null)
+            {
+                return NotFound();
+            }
+
+            AddExtraSongToPlaylistViewModel viewModel = new AddExtraSongToPlaylistViewModel()
+            {
+                Name = song.Name,
+                URL = song.URL
             };
 
             return View(viewModel);
@@ -101,13 +163,13 @@ namespace MusicPlayer_Project.Controllers
             {
                 try
                 {
-                    Playlist klant = new Playlist()
+                    Playlist playlist = new Playlist()
                     {
                         PlaylistID = viewModel.PlaylistID,
-                        Name = viewModel.Name,
+                        NamePlaylist = viewModel.NamePlaylist,
                         DateAdded = viewModel.DateAdded
                     };
-                    _context.Update(klant);
+                    _context.Update(playlist);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -124,6 +186,38 @@ namespace MusicPlayer_Project.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(viewModel);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var playlist = await _context.Playlists.FirstOrDefaultAsync(p => p.PlaylistID == id);
+            if (playlist == null)
+            {
+                return NotFound();
+            }
+
+            DeletePlaylistViewModel viewModel = new DeletePlaylistViewModel()
+            {
+                PlaylistName = playlist.NamePlaylist,
+                PlaylistID = playlist.PlaylistID
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var playlist = await _context.Playlists.FindAsync(id);
+            _context.Playlists.Remove(playlist);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

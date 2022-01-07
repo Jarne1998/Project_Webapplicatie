@@ -12,8 +12,8 @@ namespace MusicPlayer_Project.Models
     {
         [Key]
         public int AlbumID { get; set; }
-        public string Naam { get; set; }
-        [Display(Name = "Datum release")]
+        public string Name { get; set; }
+        [Display(Name = "Date release")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
         public string Image { get; set; }
@@ -21,8 +21,8 @@ namespace MusicPlayer_Project.Models
         public int SongID { get; set; }
         public int ArtistID { get; set; }
 
-        public Song Songs { get; set; }
-        public AlbumGenre AlbumGenres { get; set; }
-        public ICollection<Artist> Artists { get; set; }
+        public ICollection<Song> Songs { get; set; }
+        public ICollection<AlbumGenre> AlbumGenres { get; set; }
+        public Artist Artist { get; set; }
     }
 }

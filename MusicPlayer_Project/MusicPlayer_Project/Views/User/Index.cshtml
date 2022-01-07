@@ -1,0 +1,49 @@
+﻿@model MusicPlayer_Project.ViewModels.UserListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Users</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th class="col-md-4">
+                @Html.DisplayNameFor(v => v.Users[0].Id)
+            </th>
+            <th class="col-md-4">
+                @Html.DisplayNameFor(v => v.Users[0].UserName)
+            </th>
+            <th class="col-md-4">
+                 @Html.DisplayNameFor(v => v.Users[0].Joined)
+           </th>
+            <th class="col-md-2">
+                &nbsp;
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model.Users)
+        {
+            <tr>
+                <td class="col-md-4">
+                    @Html.DisplayFor(modelItem => user.Id)
+                </td>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => user.UserName)
+                </td>
+               <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => user.Joined)
+                </td>
+                <td class="col-md-2">
+                    <a asp-action="Details" asp-route-id="@user.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

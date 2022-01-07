@@ -15,12 +15,12 @@ namespace MusicPlayer_Project.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<MusicPlayer_ProjectContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("MusicPlayer_ProjectContextConnection")));
+                //services.AddDbContext<MusicPlayer_ProjectContext>(options =>
+                //    options.UseSqlServer(
+                //        context.Configuration.GetConnectionString("MusicPlayer_ProjectContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<MusicPlayer_ProjectContext>();
+                //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                //    .AddEntityFrameworkStores<MusicPlayer_ProjectContext>();
             });
         }
     }

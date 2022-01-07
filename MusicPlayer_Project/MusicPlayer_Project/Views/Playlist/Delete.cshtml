@@ -1,0 +1,15 @@
+﻿@model MusicPlayer_Project.ViewModels.DeletePlaylistViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h4>Are you sure you want to delete @Model.PlaylistName</h4>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="PlaylistID"/>
+    <input type="submit" value="Delete" class="btn-primary btn-primary"/>
+    <a asp-action="Index">Back to List</a>
+</form>

@@ -5,18 +5,15 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
-<div class="card col-md-4" style="float: left;">
-    <div class="card-body">
-        <a class="nav-link" asp-controller="Overview" asp-action="PlaylistOverview">Playlists</a>
-    </div>
-</div>
+<p>
+    <a asp-action="Add">Add Song to playlist</a>
+</p>
 
 <table>
     <thead>
         <tr>
             <th class="col-md-2">
-                @Html.DisplayNameFor(v => v.Playlists[0].Name)
+                @Html.DisplayNameFor(v => v.Playlists[0].NamePlaylist)
             </th>
         </tr>
     </thead>
@@ -25,12 +22,13 @@
         {
             <tr>
                 <td class="col-md-2">
-                    @Html.DisplayFor(modelItem => playlist.Name)
+                    @Html.DisplayFor(modelItem => playlist.NamePlaylist)
                 </td>
                 <td class="col-md-2">
                     <a asp-action="Edit" asp-route-id="@playlist.PlaylistID">Edit</a>
                     <a asp-action="Details" asp-route-id="@playlist.PlaylistID">Details</a>
                     <a asp-action="Delete" asp-route-id="@playlist.PlaylistID">Delete</a>
+                    <a asp-action="Add" asp-route-id="@playlist.PlaylistID">Add</a>
                 </td>
             </tr>
         }

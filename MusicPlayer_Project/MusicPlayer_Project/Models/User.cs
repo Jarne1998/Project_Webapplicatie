@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,17 +9,15 @@ using System.Threading.Tasks;
 namespace MusicPlayer_Project.Models
 {
     [Table("User", Schema = "webApp")]
-    public class User
+    public class User : IdentityUser
     {
-        [Key]
-        public int UserID { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string Username { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Joined { get; set; }
-        public string Password { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Birthday { get; set; }
 
-        public PlaylistUser PlaylistUsers { get; set; }
-        public Song Songs { get; set; }
+        public ICollection<PlaylistUser> PlaylistUsers { get; set; }
+        public ICollection<Song> Songs { get; set; }
     }
 }

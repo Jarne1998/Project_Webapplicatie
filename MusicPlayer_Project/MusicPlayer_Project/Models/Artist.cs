@@ -15,7 +15,7 @@ namespace MusicPlayer_Project.Models
         public string Name { get; set; }
         public string About { get; set; }
 
-        public Album Albums { get; set; }
-        public ArtistSong ArtistSongs { get; set; }
+        public ICollection<Album> Albums { get; set; }
+        public ICollection<ArtistSong> ArtistSongs { get; set; }
     }
 }

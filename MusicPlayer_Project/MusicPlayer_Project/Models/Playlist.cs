@@ -12,11 +12,13 @@ namespace MusicPlayer_Project.Models
     {
         [Key]
         public int PlaylistID { get; set; }
+        [Display(Name = "Date created")]
+        [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
-        public string Name { get; set; }
+        public string NamePlaylist { get; set; }
         public int SongsInPlaylist { get; set; }
 
-        public PlaylistCollection PlaylistCollections { get; set; }
-        public PlaylistUser PlaylistUsers { get; set; }
+        public ICollection<PlaylistCollection> PlaylistCollection { get; set; }
+        public PlaylistUser PlaylistUser { get; set; }
     }
 }

@@ -7,11 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicPlayer_Project.Data;
+using MusicPlayer_Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Data.Entity;
 
 namespace MusicPlayer_Project
 {
@@ -29,7 +29,7 @@ namespace MusicPlayer_Project
         {
             services.AddControllersWithViews();
             services.AddDbContext<MusicPlayer_ProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MusicPlayerDBConnection")));
-            //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<MusicPlayerContext>();
+            services.AddDefaultIdentity<User>().AddRoles<IdentityRole>().AddEntityFrameworkStores<MusicPlayer_ProjectContext>();
 
             services.Configure<IdentityOptions>(options => 
             {
@@ -51,7 +51,7 @@ namespace MusicPlayer_Project
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -78,6 +78,30 @@ namespace MusicPlayer_Project
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                endpoints.MapRazorPages();
             });
+
+            CreateRoles(serviceProvider).Wait();
+        }
+
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            MusicPlayer_ProjectContext context = serviceProvider.GetRequiredService<MusicPlayer_ProjectContext>();
+
+            IdentityResult result;
+
+            bool roleCheck = await roleManager.RoleExistsAsync("user");
+            if (!roleCheck)
+            {
+                result = await roleManager.CreateAsync(new IdentityRole("user"));
+            }
+
+            roleCheck = await roleManager.RoleExistsAsync("admin");
+            if (!roleCheck)
+            {
+                result = await roleManager.CreateAsync(new IdentityRole("admin"));
+            }
+
+            context.SaveChanges();
         }
     }
 }

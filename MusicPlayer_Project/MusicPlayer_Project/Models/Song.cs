@@ -14,12 +14,13 @@ namespace MusicPlayer_Project.Models
         public int SongID { get; set; }
         public string Name { get; set; }
         public int DurationSong { get; set; }
-        public string FileType { get; set; }
+        public string URL { get; set; }
+        public Nullable<int> FileSize { get; set; }
 
-        public ICollection<Album> Albums { get; set; }
-        public ICollection<User> Users { get; set; }
-        public SongGenre SongGenres { get; set; }
-        public PlaylistCollection PlaylistCollections { get; set; }
-        public ArtistSong ArtistSongs { get; set; }
+        public Album Album { get; set; }
+        public User User { get; set; }
+        public ICollection<SongGenre> SongGenres { get; set; }
+        public ICollection<PlaylistCollection> PlaylistCollections { get; set; }
+        public ICollection<ArtistSong> ArtistSongs { get; set; }
     }
 }

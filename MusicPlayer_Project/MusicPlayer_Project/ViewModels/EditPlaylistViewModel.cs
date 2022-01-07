@@ -9,7 +9,11 @@ namespace MusicPlayer_Project.ViewModels
     public class EditPlaylistViewModel
     {
         public int PlaylistID { get; set; }
+        public string NamePlaylist { get; set; }
+
         public string Name { get; set; }
+
+        public string URL { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }

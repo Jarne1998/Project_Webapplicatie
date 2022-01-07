@@ -12,8 +12,14 @@ namespace MusicPlayer_Project.Models
     {
         [Key]
         public int SongID { get; set; }
+        [Display(Name = "Name Song")]
+        [StringLength(100, MinimumLength = 5)]
+        [Required(ErrorMessage = "Please enter the title of the song")]
         public string Name { get; set; }
         public int DurationSong { get; set; }
+        [Display(Name = "Name Song")]
+        [StringLength(100, MinimumLength = 5)]
+        [Required(ErrorMessage = "Please enter the title of the song")]
         public string URL { get; set; }
         public Nullable<int> FileSize { get; set; }
 

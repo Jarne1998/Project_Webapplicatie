@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicPlayer_Project.Data;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace MusicPlayer_Project.Controllers
 {
+    //[Authorize(Roles = "User")]
     public class SongController : Controller
     {
         private readonly MusicPlayer_ProjectContext _context;

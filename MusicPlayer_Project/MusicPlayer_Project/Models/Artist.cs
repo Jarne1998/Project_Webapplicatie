@@ -12,6 +12,9 @@ namespace MusicPlayer_Project.Models
     {
         [Key]
         public int ArtistID { get; set; }
+        [Display(Name = "Name")]
+        [StringLength(100, MinimumLength = 5)]
+        [Required(ErrorMessage = "Please enter the title of the artist")]
         public string Name { get; set; }
         public string About { get; set; }
 

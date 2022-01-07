@@ -439,3 +439,4 @@ C:\Users\jarne\Documents\ThomasMore\ThomasMore\Projecten\Project_Webapplicatie\M
 C:\Users\jarne\Documents\ThomasMore\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.pdb
 C:\Users\jarne\Documents\ThomasMore\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.genruntimeconfig.cache
 C:\Users\jarne\Documents\ThomasMore\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\MusicPlayer_Project.csproj.AssemblyReference.cache
+C:\Users\jarne\Documents\ThomasMore\ThomasMore\Projecten\Project_Webapplicatie\MusicPlayer_Project\MusicPlayer_Project\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs

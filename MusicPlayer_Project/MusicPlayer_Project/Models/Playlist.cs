@@ -15,6 +15,9 @@ namespace MusicPlayer_Project.Models
         [Display(Name = "Date created")]
         [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
+        [Display(Name = "Playlist name")]
+        [StringLength(100, MinimumLength = 5)]
+        [Required(ErrorMessage = "Please enter the title of the playlist")]
         public string NamePlaylist { get; set; }
         public int SongsInPlaylist { get; set; }
 
